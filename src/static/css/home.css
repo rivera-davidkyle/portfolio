@@ -1,6 +1,15 @@
 .home {
-    background-color: blue;
+    width:auto;
+    background-color: #1c1c1c;
     padding: 20px;
+}
+.home img.pfp {
+    width: 20vw;
+    height: auto;
+    border:5px solid #f702d3;
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
 }
 
 

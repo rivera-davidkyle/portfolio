@@ -19,6 +19,19 @@ const appTheme = createTheme({
   },
 });
 
+const childTheme = createTheme({
+  typography: {
+    body1: {
+      color: "#fff9fe",
+    },
+    h4: {
+      color: "#fff9fe",
+    },
+    fontFamily: ["Lato", "Thin"].join(","),
+    fontSize: 20,
+  },
+});
+
 const appStyles = {
   button: {
     padding: "20px",
@@ -56,7 +69,7 @@ function App() {
   const [active, setActive] = useState("Home");
   const [transition, setTransition] = useState(true);
   const handler = (e, view) => {
-    if (view != active) {
+    if (view !== active) {
       setTransition(false);
       setTimeout(() => {
         setTransition(true);
@@ -95,11 +108,14 @@ function App() {
         </AppBar>
         <CSSTransition
           in={transition}
-          timeout={300}
-          classNames="app"
+          timeout={850}
+          classNames={{
+          enterActive: 'animate__animated animate__fadeIn',
+          exitActive: 'animate__animated animate__fadeOut'
+        }} 
           unmountOnExit
         >
-          {navSite[active]}
+          <ThemeProvider theme={childTheme}>{navSite[active]}</ThemeProvider>
         </CSSTransition>
       </ThemeProvider>
     </div>

@@ -7,53 +7,13 @@
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: #f702d3;
-  padding: 20px;
+  padding: 20px; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.animate__animated.animate__fadeIn {
+  --animate-duration: 850ms;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-/* Initial state for entering */
-.app-enter {
-  opacity: 0;
-  transform: translateX(-100%); /* Start from the left (off-screen) */
-}
-
-/* Active state for entering */
-.app-enter-active {
-  opacity: 1;
-  transform: translateX(0%); /* Slide in from the left */
-  transition: transform 300ms ease-in, opacity 300ms ease-in;
-}
-
-/* Initial state for exiting */
-.app-exit {
-  opacity: 1;
-  transform: translateX(0%); /* Start from the center */
-}
-
-/* Active state for exiting */
-.app-exit-active {
-  opacity: 0;
-  transform: translateX(100%); /* Slide out to the right */
-  transition: transform 300ms ease-out, opacity 300ms ease-out;
-}
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.animate__animated.animate__fadeOut {
+  --animate-duration: 850ms;
 }
