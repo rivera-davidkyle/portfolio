@@ -48,11 +48,21 @@ const appStyles = {
     color: "#f702d3",
   },
 };
-
+const navSite = {
+  Home: <Home />,
+  Projects: <Projects />,
+};
 function App() {
   const [active, setActive] = useState("Home");
+  const [transition, setTransition] = useState(true);
   const handler = (e, view) => {
-    setActive(view);
+    if (view != active) {
+      setTransition(false);
+      setTimeout(() => {
+        setTransition(true);
+        setActive(view);
+      }, 200);
+    }
   };
   return (
     <div className="App">
@@ -84,21 +94,12 @@ function App() {
           </Toolbar>
         </AppBar>
         <CSSTransition
-          in={active === "Home"}
+          in={transition}
           timeout={300}
           classNames="app"
           unmountOnExit
         >
-          <Home />
-        </CSSTransition>
-
-        <CSSTransition
-          in={active === "Projects"}
-          timeout={300}
-          classNames="app"
-          unmountOnExit
-        >
-          <Projects />
+          {navSite[active]}
         </CSSTransition>
       </ThemeProvider>
     </div>

@@ -20,21 +20,30 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+/* Initial state for entering */
 .app-enter {
   opacity: 0;
+  transform: translateX(-100%); /* Start from the left (off-screen) */
 }
+
+/* Active state for entering */
 .app-enter-active {
-opacity: 1;
-transform: translateX(0%); /* Slide in from the left */
+  opacity: 1;
+  transform: translateX(0%); /* Slide in from the left */
   transition: transform 300ms ease-in, opacity 300ms ease-in;
 }
+
+/* Initial state for exiting */
 .app-exit {
-opacity: 1;
+  opacity: 1;
+  transform: translateX(0%); /* Start from the center */
 }
+
+/* Active state for exiting */
 .app-exit-active {
-opacity: 0;
-transform: translateX(100%); /* Slide out to the right */
-transition: transform 300ms ease-out, opacity 300ms ease-out;
+  opacity: 0;
+  transform: translateX(100%); /* Slide out to the right */
+  transition: transform 300ms ease-out, opacity 300ms ease-out;
 }
 .App-link {
   color: #61dafb;
