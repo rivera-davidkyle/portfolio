@@ -5,15 +5,15 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import Typewriter from "typewriter-effect";
 
 const styles = {
-  grid:{
-    display:"flex",
-    justifyContent:"center",
-    alignItems:"center"
+  grid: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  container:{
-    padding:"20px"
-  }
-}
+  container: {
+    padding: "20px",
+  },
+};
 
 function home() {
   return (
@@ -23,7 +23,7 @@ function home() {
           <img className="pfp" alt="" src={pfp}></img>
         </Container>
         <Grid container sx={styles.grid}>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Container sx={styles.container}>
               <Typography variant="h4">David Rivera</Typography>
               <Typography variant="h5">
@@ -52,10 +52,8 @@ function home() {
             </Container>
             <Container sx={styles.container}>
               <Typography variant="body1" align="center">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-                blanditiis tenetur unde suscipit, quam beatae rerum inventore
-                consectetur, neque doloribus, cupiditate numquam dignissimos
-                laborum fugiat deleniti? Eum quasi quidem quibusdam.
+                I take opportunities to challenge myself to gain new skills and
+                grow professionally. Whenever
               </Typography>
             </Container>
           </Grid>

@@ -10,6 +10,7 @@ import { CSSTransition } from "react-transition-group";
 import "./App.css";
 import Home from "./components/home.jsx";
 import Projects from "./components/proj.jsx";
+import Info from "./components/info.jsx";
 import React, { useState } from "react";
 
 const appTheme = createTheme({
@@ -64,6 +65,7 @@ const appStyles = {
 const navSite = {
   Home: <Home />,
   Projects: <Projects />,
+  Info: <Info />,
 };
 function App() {
   const [active, setActive] = useState("Home");
@@ -101,7 +103,11 @@ function App() {
             >
               <Typography>Projects</Typography>
             </Button>
-            <Button variant="text" sx={appStyles.button}>
+            <Button
+              variant="text"
+              onClick={() => handler(null, "Info")}
+              sx={appStyles.button}
+            >
               <Typography>Info</Typography>
             </Button>
           </Toolbar>
@@ -110,9 +116,9 @@ function App() {
           in={transition}
           timeout={850}
           classNames={{
-          enterActive: 'animate__animated animate__fadeIn',
-          exitActive: 'animate__animated animate__fadeOut'
-        }} 
+            enterActive: "animate__animated animate__fadeIn",
+            exitActive: "animate__animated animate__fadeOut",
+          }}
           unmountOnExit
         >
           <ThemeProvider theme={childTheme}>{navSite[active]}</ThemeProvider>
