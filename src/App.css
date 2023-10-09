@@ -10,6 +10,10 @@
   overflow: hidden;
 }
 
+.App img.logo {
+  height: 3.5vh;
+  padding: 10px;
+}
 .animate__animated.animate__fadeIn {
   --animate-duration: 850ms;
 }

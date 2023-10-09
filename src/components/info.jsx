@@ -7,12 +7,9 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  ListItemIcon,
-  Chip,
-  Container,
 } from "@mui/material";
 import LaunchIcon from "@mui/icons-material/Launch";
-
+import resume from "../static/misc/resume.pdf";
 const styles = {
   grid: {
     display: "flex",
@@ -23,16 +20,22 @@ const styles = {
     verticalAlign: "super",
   },
   listButton: {
-    backgroundColor: "transparent",
     "&:hover": {
       backgroundColor: "transparent",
     },
   },
-  listText: {
+  typography: {
+    transition: "color 0.3s",
     "&:hover": {
       color: "#f702d3",
     },
   },
+};
+
+const infoText = {
+  Resume: resume,
+  "2022 Portfolio Website": "https://rivera-davidkyle.github.io/my-website/",
+  UCN: "https://www.ucn-portal.org/",
 };
 
 function info() {
@@ -40,18 +43,27 @@ function info() {
     <Box className="info">
       <Grid container sx={styles.grid}>
         <Grid item xs={12}>
-          <List>
-            <ListItemButton disableRipple sx={styles.listButton}>
-              <ListItemText
-                sx={styles.listText}
-                primary={
-                  <Typography variant="h4">
-                    Resume
-                    <LaunchIcon sx={styles.icon} />
-                  </Typography>
-                }
-              />
-            </ListItemButton>
+          <List component="div">
+            {Object.keys(infoText).map((info, infoIndex) => (
+              <ListItemButton
+                disableRipple
+                sx={styles.listButton}
+                href={infoText[info]}
+              >
+                <ListItemText
+                  primary={
+                    <Typography
+                      variant="h4"
+                      align="center"
+                      sx={styles.typography}
+                    >
+                      {info}
+                      <LaunchIcon sx={styles.icon} />
+                    </Typography>
+                  }
+                />
+              </ListItemButton>
+            ))}
           </List>
         </Grid>
       </Grid>

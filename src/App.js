@@ -4,7 +4,9 @@ import {
   Toolbar,
   Typography,
   createTheme,
+  Container,
   Button,
+  IconButton,
 } from "@mui/material";
 import { CSSTransition } from "react-transition-group";
 import "./App.css";
@@ -12,6 +14,11 @@ import Home from "./components/home.jsx";
 import Projects from "./components/proj.jsx";
 import Info from "./components/info.jsx";
 import React, { useState } from "react";
+
+// Icons
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
 
 const appTheme = createTheme({
   typography: {
@@ -61,12 +68,21 @@ const appStyles = {
     alignItems: "center",
     color: "#f702d3",
   },
+  icon: {
+    color: "#f702d3",
+    transition: "color 0.3s",
+    "&:hover": {
+      color: "#fff9fe",
+    },
+  },
 };
+
 const navSite = {
   Home: <Home />,
   Projects: <Projects />,
   Info: <Info />,
 };
+
 function App() {
   const [active, setActive] = useState("Home");
   const [transition, setTransition] = useState(true);
@@ -123,6 +139,28 @@ function App() {
         >
           <ThemeProvider theme={childTheme}>{navSite[active]}</ThemeProvider>
         </CSSTransition>
+        <Container sx={{ marginTop: "auto", padding: "10px" }}>
+          <IconButton
+            sx={appStyles.icon}
+            onClick={() => window.open("https://github.com/rivera-davidkyle")}
+          >
+            <GitHubIcon />
+          </IconButton>
+          <IconButton
+            sx={appStyles.icon}
+            onClick={() =>
+              window.open("https://www.linkedin.com/in/rivera-davidkyle/")
+            }
+          >
+            <LinkedInIcon sx={appStyles.icon} />
+          </IconButton>
+          <IconButton
+            sx={appStyles.icon}
+            onClick={() => window.open("mailto:rivera.davidkyle@gmail.com")}
+          >
+            <EmailIcon sx={appStyles.icon} />
+          </IconButton>
+        </Container>
       </ThemeProvider>
     </div>
   );

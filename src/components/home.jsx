@@ -33,16 +33,13 @@ function home() {
                   }}
                   onInit={(typewriter) => {
                     typewriter
-                      .typeString("Software Engineer.")
-                      .pauseFor(2000)
-                      .deleteAll()
-                      .typeString("Web Developer.")
-                      .pauseFor(2000)
-                      .deleteAll()
-                      .typeString("Tech Enthusiast.")
+                      .typeString("Software Developer.")
                       .pauseFor(2000)
                       .deleteAll()
                       .typeString("Lifelong Learner.")
+                      .pauseFor(2000)
+                      .deleteAll()
+                      .typeString("Product Focused.")
                       .pauseFor(2000)
                       .deleteAll()
                       .start();
@@ -52,8 +49,9 @@ function home() {
             </Container>
             <Container sx={styles.container}>
               <Typography variant="body1" align="center">
-                I take opportunities to challenge myself to gain new skills and
-                grow professionally. Whenever
+                I think that achieving effective production requires the ability
+                to constantly adapt. With a drive for innovation, I pursue
+                challenging opportunities to contribute and expand my skillset.
               </Typography>
             </Container>
           </Grid>

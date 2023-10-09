@@ -20,7 +20,6 @@ const styles = {
   listItem: {
     borderBottom: "1px solid #f702d3",
     padding: "10px",
-    fontSize: "2",
     color: "#fff9fe",
     display: "flex",
     flexDirection: "column",
