@@ -67,6 +67,7 @@ const appStyles = {
     flexDirection: "column",
     alignItems: "center",
     color: "#f702d3",
+    backgroundColor: "#1c1c1c"
   },
   icon: {
     color: "#f702d3",
@@ -101,8 +102,7 @@ function App() {
         <AppBar
           elevation={0}
           sx={appStyles.navbar}
-          position="static"
-          color="transparent"
+          position="fixed"
         >
           <Toolbar sx={{ borderBottom: "2px solid #f702d3" }}>
             <Button
