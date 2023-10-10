@@ -49,9 +49,9 @@ function home() {
             </Container>
             <Container sx={styles.container}>
               <Typography variant="body1" align="center">
-                I think that achieving effective production requires the ability
-                to constantly adapt. With a drive for innovation, I pursue
-                challenging opportunities to contribute and expand my skillset.
+                I am passionate on actualizing ideas and concepts through
+                web-based applications. I seek out opportunities to enhance my
+                skill set and refine my abilities to better my craft.
               </Typography>
             </Container>
           </Grid>
