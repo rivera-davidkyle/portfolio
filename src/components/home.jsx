@@ -1,7 +1,7 @@
 import React from "react";
 import "../static/css/home.css";
 import pfp from "../static/img/pfp.png";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography, Link } from "@mui/material";
 import Typewriter from "typewriter-effect";
 
 const styles = {
@@ -33,13 +33,13 @@ function home() {
                   }}
                   onInit={(typewriter) => {
                     typewriter
-                      .typeString("Software Developer.")
-                      .pauseFor(2000)
-                      .deleteAll()
-                      .typeString("Lifelong Learner.")
+                      .typeString("Software Engineer.")
                       .pauseFor(2000)
                       .deleteAll()
                       .typeString("Product Focused.")
+                      .pauseFor(2000)
+                      .deleteAll()
+                      .typeString("Lifelong Learner.")
                       .pauseFor(2000)
                       .deleteAll()
                       .start();
@@ -49,9 +49,17 @@ function home() {
             </Container>
             <Container sx={styles.container}>
               <Typography variant="body1" align="center">
-                I am passionate on actualizing ideas and concepts through
-                web-based applications. I seek out opportunities to enhance my
-                skill set and refine my abilities to better my craft.
+                Based in District of Columbia, developing for both embedded and
+                full-stack software for{" "}
+                <Link
+                  href="https://www.hughes.com/"
+                  target="_blank"
+                  rel="noopener"
+                  sx={{ color: "#f702d3", textDecoration: "none" }}
+                >
+                  next-gen satellite broadband.
+                </Link>{" "}
+                Driven to transform ideas into action.
               </Typography>
             </Container>
           </Grid>

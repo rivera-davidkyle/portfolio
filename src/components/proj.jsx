@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../static/css/proj.css";
 import {
   Box,
@@ -34,7 +34,7 @@ const styles = {
     margin: "0",
   },
 };
-const gitRepos = "https://api.github.com/users/rivera-davidkyle/repos";
+
 const chipColor = {
   html: "#E34C26",
   css: "#264de4",
@@ -52,32 +52,12 @@ const chipColor = {
   pandas: "#150458",
   scikitlearn: "#F7931E",
   bootstrap: "#7952B3",
+  kotlin: "#A97BBA",
+  spring: "#6DB33F",
+  rabbitmq: "#FF6600",
 };
-function RenderProjects() {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    fetch(gitRepos)
-      .then((response) => response.json())
-      .then((json) => {
-        const filteredData = json
-          .filter(
-            (item) =>
-              item.name !== "my-website" && item.name !== "rivera-davidkyle"
-          )
-          .map((item) => ({
-            name: item.name || "",
-            description:
-              item.description ||
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            topics: item.topics || [],
-            url: item.html_url || "",
-          }));
 
-        setData(filteredData);
-      })
-      .catch((error) => console.error(error));
-  }, []);
-
+const RenderProjects = ({ data }) => {
   function formatName(name) {
     return name
       .split("-")
@@ -116,17 +96,18 @@ function RenderProjects() {
         ))}
     </List>
   );
-}
-function proj() {
+};
+
+const proj = ({ data }) => {
   return (
     <Box className="proj">
       <Grid container sx={styles.grid}>
         <Grid item xs={12}>
-          <RenderProjects />
+          <RenderProjects data={data} />
         </Grid>
       </Grid>
     </Box>
   );
-}
+};
 
 export default proj;

@@ -13,7 +13,7 @@ import "./App.css";
 import Home from "./components/home.jsx";
 import Projects from "./components/proj.jsx";
 import Info from "./components/info.jsx";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Icons
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -67,7 +67,7 @@ const appStyles = {
     flexDirection: "column",
     alignItems: "center",
     color: "#f702d3",
-    backgroundColor: "#1c1c1c"
+    backgroundColor: "#1c1c1c",
   },
   icon: {
     color: "#f702d3",
@@ -78,15 +78,42 @@ const appStyles = {
   },
 };
 
-const navSite = {
-  Home: <Home />,
-  Projects: <Projects />,
-  Info: <Info />,
-};
+const gitRepos = "https://api.github.com/users/rivera-davidkyle/repos";
 
 function App() {
   const [active, setActive] = useState("Home");
   const [transition, setTransition] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(gitRepos)
+      .then((response) => response.json())
+      .then((json) => {
+        const filteredData = json
+          .filter(
+            (item) =>
+              item.name !== "my-website" && item.name !== "rivera-davidkyle"
+          )
+          .map((item) => ({
+            name: item.name || "",
+            description:
+              item.description ||
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            topics: item.topics || [],
+            url: item.html_url || "",
+          }));
+
+        setData(filteredData);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+  const navSite = {
+    Home: <Home />,
+    Projects: <Projects data={data} />,
+    Info: <Info />,
+  };
+
   const handler = (e, view) => {
     if (view !== active) {
       setTransition(false);
@@ -99,11 +126,7 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={appTheme}>
-        <AppBar
-          elevation={0}
-          sx={appStyles.navbar}
-          position="fixed"
-        >
+        <AppBar elevation={0} sx={appStyles.navbar} position="fixed">
           <Toolbar sx={{ borderBottom: "2px solid #f702d3" }}>
             <Button
               variant="text"
